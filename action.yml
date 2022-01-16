@@ -1,0 +1,9 @@
+name: "Update Readme Action"
+author: "nclsbayona"
+description: "An action for updating readme with links to images in the repository"
+branding:
+  icon: user-check
+  color: black
+runs:
+  using: "docker"
+  image: "Dockerfile"
