@@ -100,26 +100,26 @@ def separateImage(image:str):
   separated=list(''.join(image.split('(')[-1]).replace(')','').split('/'))
   return separated
 
-def searchTitle(title:list, li=False):
-    #This function searches for an specific title, it requires to have the whole hierarchy of the title. If the li flag is true, then it would look for a list item
-    print ("Title" , title)
-    if (li):
-        raise Exception("Not implemented")
-    else:
-        raise Exception("Not implemented")
 
 def main():
     new_images=list(map(separateImage, decideNewImages()))
     to_add=list(map(makeData, new_images))
     for img in to_add:
         tree.addNewImage(img)
-    '''repo.update_file(
+    ordered=tree.orderNodesByLineNumber()
+    readme=[]
+    for _ in range(ordered[-1].getLine()+1):
+        readme.append("")
+    for data in ordered:
+        readme[data.getLine()]=data.getData()
+    new_readme="\n".join(readme)
+    repo.update_file(
         path=old_readme.path,
         message="Updated the README file",
         content=new_readme,
         sha=old_readme.sha,
         committer=InputGitAuthor("Auto_Update-Bot", "github-actions[bot]@users.noreply.github.com"),
-    )'''
+    )
 
 if __name__=="__main__":
     main()

@@ -1,3 +1,6 @@
+def getLineNumNode(node:'Node'):
+    return node.getLine()
+
 class Node:
     __slots__=("_children", "_data", "_line")
     def __init__(self, data, line, *children) -> None:
@@ -78,7 +81,16 @@ class Node:
                 node.updateLineNum(line_num, inc)
         except:
             pass
-        
+
+    def orderNodesByLineNumber(self):
+        ret=[self]
+        try:
+            for child in self._children:
+                ret.extend(child.orderNodesByLineNumber())
+        except:
+            pass
+        return ret
+
     def __str__(self) -> str:
         ret:str=""
         ret+= (f"Level {self.getLevel()}: line -> {self._line}, data: {self._data}\n")
@@ -144,6 +156,11 @@ class Tree:
 
     def makeFile(self):
         print (None)
+
+    def orderNodesByLineNumber(self):
+        ret=self._parent_node.orderNodesByLineNumber()
+        ret.sort(key=getLineNumNode)
+        return ret
         
     def __str__(self) -> str:
         return (str(self._parent_node))
