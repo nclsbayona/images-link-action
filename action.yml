@@ -1,6 +1,17 @@
 name: "Update Readme Action"
 author: "nclsbayona"
 description: "An action for updating readme with links to images in the repository"
+inputs:
+  GITHUB_TOKEN:
+    description: 'The token for authentication'
+    required: true
+    default: ${{ secrets.GITHUB_TOKEN }}
+
+  REPOSITORY:
+    description: 'The name of the repository'
+    required: true
+    default: ${{ github.repository }}
+    
 branding:
   icon: user-check
   color: black
