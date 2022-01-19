@@ -69,11 +69,14 @@ def searchForImagesInOldReadme():
     global tree
     makeOldReadmeTree()
     ret=[]
+    print ("Old images:")
     for image in tree.getImages():
         try:
             ret.extend(image)
         except:
             ret.append(image)
+        print(image)
+    print()
     return ret
 
 def decideNewImages():
@@ -104,8 +107,11 @@ def separateImage(image:str):
 def main():
     new_images=list(map(separateImage, decideNewImages()))
     to_add=list(map(makeData, new_images))
+    print("New images:")
     for img in to_add:
         tree.addNewImage(img)
+        print(img)
+    print()
     ordered=tree.orderNodesByLineNumber()
     readme=[]
     for _ in range(ordered[-1].getLine()+1):
