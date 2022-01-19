@@ -76,7 +76,7 @@ def searchForImagesInOldReadme():
         except:
             ret.append(image)
         print(image)
-    print()
+    print(len(ret))
     return ret
 
 def decideNewImages():
