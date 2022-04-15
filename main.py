@@ -101,6 +101,20 @@ def separateImage(image:str):
   separated=list(''.join(image.split('(')[-1]).replace(')','').split('/'))
   return separated
 
+def sortImages(images: list):
+    start, end=0,0
+    for (i, image) in enumerate(images):
+        if (len(image)==0):
+            continue
+        if (image.startswith("-")):
+            start=i
+            for (j, image2) in enumerate(images[i+1:]):
+                if (len(image2)==0):
+                    continue
+                if (image2.startswith("-") or image2.startswith("#")):
+                    end=i+j
+                images[start:end+1]=sorted(images[start:end+1])
+
 
 def main():
     new_images=list(map(separateImage, decideNewImages()))
@@ -115,6 +129,7 @@ def main():
         readme.append("")
     for data in ordered:
         readme[data.getLine()]=data.getData()
+    sortImages(readme)
     new_readme="\n".join(readme)
     print("Readme\n",readme,"\nNew readme\n", new_readme)
     repo.update_file(
