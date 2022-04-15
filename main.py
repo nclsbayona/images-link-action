@@ -106,7 +106,6 @@ def separateImage(image:str):
 
 def sortImages(images: list):
     start, end=0,0
-    ended=False
     for (i, image) in enumerate(images):
         if (len(image)==0):
             continue
@@ -115,7 +114,7 @@ def sortImages(images: list):
             ended=False
             for (j, image2) in enumerate(images[start:]):
                 if (not ended and (image2.startswith("-") or image2.startswith("#"))):
-                    end=j
+                    end=i+j
                     def getx(x):
                         if (len(x)==0):
                             return 0
@@ -124,7 +123,6 @@ def sortImages(images: list):
                         return w
                     images[start:end].sort(key=lambda x: getx(x))
                     ended=True
-                    print ("Start: ", images[start], "End: ", images[end])
                     
 
 
