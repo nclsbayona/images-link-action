@@ -94,7 +94,7 @@ class Node:
 
     def __str__(self) -> str:
         ret:str=""
-        ret+= (f"Level {self.getLevel()}: line -> {self._line}, data: {self._data}\n")
+        ret+= (f"Level {self.getLevel()}: line -> {self._line} data: {self._data}.")
         try:
             for node in self._children:
                 ret+=str(node)+'\n'
