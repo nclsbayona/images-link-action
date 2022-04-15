@@ -116,7 +116,7 @@ def sortImages(images: list):
                     continue
                 if (image2.startswith("-") or image2.startswith("#")):
                     end=j+1
-                    images[start:end].sort(key=lambda x: int(x.split('![#')[-1].split(']')[0]))
+                    images[start:end].sort(key=lambda x: print(x.split('![#')[-1].split(']')[0]))
                     break
                     
 
