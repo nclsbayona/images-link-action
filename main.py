@@ -123,8 +123,7 @@ def sortImages(images: list):
                         return w
                     images[start:end].sort(key=lambda x: getx(x))
                     ended=True
-                    
-
+    print (images)
 
 def main():
     new_images=list(map(separateImage, decideNewImages()))
