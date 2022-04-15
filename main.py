@@ -115,7 +115,7 @@ def sortImages(images: list):
             ended=False
             for (j, image2) in enumerate(images[start:]):
                 if (not ended and (image2.startswith("-") or image2.startswith("#"))):
-                    end=j+1
+                    end=j
                     def getx(x):
                         if (len(x)==0):
                             return 0
@@ -135,7 +135,6 @@ def main():
         tree.addNewImage(img)
     ordered=tree.orderNodesByLineNumber()
     readme=[]
-    print ("Ordered\n", [o.__str__() for o in ordered])
     for _ in range(ordered[-1].getLine()+1):
         readme.append("")
     for data in ordered:
