@@ -121,10 +121,10 @@ def sortImages(images: list):
                         w=int(x.split('![#')[-1].split(']')[0])
                         print (x, '-->', w)
                         return w
+                    print ("1")
                     images[start:end].sort(key=lambda x: getx(x))
+                    print ("2")
                     ended=True
-    print (images)
-
 def main():
     new_images=list(map(separateImage, decideNewImages()))
     to_add=list(map(makeData, new_images))
