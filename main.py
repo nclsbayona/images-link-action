@@ -134,7 +134,7 @@ def main():
         readme.append("")
     for data in ordered:
         readme[data.getLine()]=data.getData()
-    #sortImages(readme)
+    sortImages(readme)
     new_readme="\n".join(readme)
     print("Readme\n",readme,"\nNew readme\n", new_readme)
     repo.update_file(
