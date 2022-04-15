@@ -1,6 +1,3 @@
-from subprocess import list2cmdline
-
-
 def getLineNumNode(node:'Node'):
     return node.getLine()
 

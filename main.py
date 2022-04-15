@@ -75,8 +75,6 @@ def searchForImagesInOldReadme():
             ret.extend(image)
         except:
             ret.append(image)
-        print(image)
-    print(len(ret))
     return ret
 
 def decideNewImages():
@@ -110,8 +108,6 @@ def main():
     print("New images:")
     for img in to_add:
         tree.addNewImage(img)
-        print(img)
-    print()
     ordered=tree.orderNodesByLineNumber()
     readme=[]
     print ("Ordered\n", [o.__str__() for o in ordered])
