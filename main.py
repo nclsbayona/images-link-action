@@ -106,13 +106,15 @@ def separateImage(image:str):
 
 def sortImages(images: list):
     start, end=0,0
+    ended=False
     for (i, image) in enumerate(images):
         if (len(image)==0):
             continue
         if (image.startswith("-")):
             start=i+1
+            ended=False
             for (j, image2) in enumerate(images[start:]):
-                if (end!=-1 and (image2.startswith("-") or image2.startswith("#"))):
+                if (not ended and (image2.startswith("-") or image2.startswith("#"))):
                     end=j+1
                     def getx(x):
                         if (len(x)==0):
@@ -121,7 +123,7 @@ def sortImages(images: list):
                         print (x, '-->', w)
                         return w
                     images[start:end].sort(key=lambda x: getx(x))
-                    end=-1
+                    ended=True
                     
 
 
