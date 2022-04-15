@@ -119,7 +119,7 @@ def main():
     for data in ordered:
         readme[data.getLine()]=data.getData()
     new_readme="\n".join(readme)
-    print("Readme\n",readme"\nNew readme\n", new_readme)
+    print("Readme\n",readme,"\nNew readme\n", new_readme)
     repo.update_file(
         path=old_readme.path,
         message="Updated the README file",
