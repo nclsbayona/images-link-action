@@ -92,7 +92,8 @@ class Node:
                 ret.extend(child.orderNodesByLineNumber())
         except:
             pass
-        return ret.sort(key=getLineNumNode)
+        ret.sort(key=getLineNumNode)
+        return ret
 
     def __str__(self) -> str:
         ret:str=""
