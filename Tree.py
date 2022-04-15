@@ -1,3 +1,6 @@
+from subprocess import list2cmdline
+
+
 def getLineNumNode(node:'Node'):
     return node.getLine()
 
@@ -83,7 +86,7 @@ class Node:
             pass
 
     def orderNodesByLineNumber(self):
-        ret=[self]
+        ret: list=[self]
         try:
             for child in self._children:
                 ret.extend(child.orderNodesByLineNumber())
