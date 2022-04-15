@@ -124,7 +124,7 @@ def sortImages(images: list):
                         return w
                     images[start:end].sort(key=lambda x: getx(x))
                     ended=True
-                    print ("Start: ", start, "End: ", end)
+                    print ("Start: ", images[start], "End: ", images[end])
                     
 
 
