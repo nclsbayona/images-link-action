@@ -110,8 +110,8 @@ def sortImages(images: list):
         if (len(image)==0):
             continue
         if (image.startswith("-")):
-            start=i
-            for (j, image2) in enumerate(images[start+1:]):
+            start=i+1
+            for (j, image2) in enumerate(images[start:]):
                 if (len(image2)==0):
                     continue
                 if (image2.startswith("-") or image2.startswith("#")):
