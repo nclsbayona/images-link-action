@@ -106,7 +106,10 @@ def separateImage(image:str):
 
 def sortImages(images: list):
     start, end=0,0
+    ordered=list()
     for (i, image) in enumerate(images):
+        if (image not in ordered):
+            ordered.append(image)
         if (len(image)==0):
             continue
         if (image.startswith("-")):
@@ -122,9 +125,10 @@ def sortImages(images: list):
                         print (x, '-->', w)
                         return w
                     print ("1")
-                    images[start:end]=images[start:end].sort(key=lambda x: getx(x))
+                    ordered.extend(sorted(images[start:end],key=lambda x: getx(x)))
                     print ("2")
                     ended=True
+    return ordered
 def main():
     new_images=list(map(separateImage, decideNewImages()))
     to_add=list(map(makeData, new_images))
@@ -137,7 +141,7 @@ def main():
         readme.append("")
     for data in ordered:
         readme[data.getLine()]=data.getData()
-    sortImages(readme)
+    readme=sortImages(readme)
     new_readme="\n".join(readme)
     print("Readme\n",readme,"\nNew readme\n", new_readme)
     repo.update_file(
