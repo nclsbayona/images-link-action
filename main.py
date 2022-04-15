@@ -119,7 +119,9 @@ def sortImages(images: list):
                     def getx(x):
                         if (len(x)==0):
                             return 0
-                        return int(x.split('![#')[-1].split(']')[0])
+                        w=int(x.split('![#')[-1].split(']')[0])
+                        print (x, '-->', w)
+                        return w
                     images[start:end].sort(key=lambda x: getx(x))
                     break
                     
