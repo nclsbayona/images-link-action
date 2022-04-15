@@ -79,12 +79,15 @@ def searchForImagesInOldReadme():
 
 def decideNewImages():
     images=list(map(decideStringForReadme, lookForImages(makeRecursiveDirFileTree())))
-    old_images=[node.getData() for node in searchForImagesInOldReadme()]
-    for image in (old_images):
-        try:
-            images.remove(image)
-        except:
-            pass
+    try:
+        old_images=[node.getData() for node in searchForImagesInOldReadme()]
+        for image in (old_images):
+            try:
+                images.remove(image)
+            except:
+                pass
+    except:
+        pass
     return images
 
 def makeData(image_data):
