@@ -112,8 +112,10 @@ def sortImages(images: list):
                 if (len(image2)==0):
                     continue
                 if (image2.startswith("-") or image2.startswith("#")):
-                    end=i+j
-                images[start:end+1]=sorted(images[start:end+1])
+                    end=i+j+1
+                    images[start:end].sort()
+                    break
+                    
 
 
 def main():
