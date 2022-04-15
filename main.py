@@ -112,7 +112,7 @@ def sortImages(images: list):
         if (image.startswith("-")):
             start=i+1
             for (j, image2) in enumerate(images[start:]):
-                if (image2.startswith("-") or image2.startswith("#")):
+                if (end!=-1 and (image2.startswith("-") or image2.startswith("#"))):
                     end=j+1
                     def getx(x):
                         if (len(x)==0):
@@ -121,7 +121,7 @@ def sortImages(images: list):
                         print (x, '-->', w)
                         return w
                     images[start:end].sort(key=lambda x: getx(x))
-                    continue
+                    end=-1
                     
 
 
