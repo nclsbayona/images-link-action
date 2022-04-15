@@ -122,7 +122,7 @@ def sortImages(images: list):
                         print (x, '-->', w)
                         return w
                     print ("1")
-                    images[start:end].sort(key=lambda x: getx(x))
+                    images[start:end]=images[start:end].sort(key=lambda x: getx(x))
                     print ("2")
                     ended=True
 def main():
