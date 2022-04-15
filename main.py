@@ -114,7 +114,7 @@ def main():
     print()
     ordered=tree.orderNodesByLineNumber()
     readme=[]
-    print ("Ordered\n", ordered)
+    print ("Ordered\n", [o for o in ordered])
     for _ in range(ordered[-1].getLine()+1):
         readme.append("")
     for data in ordered:
